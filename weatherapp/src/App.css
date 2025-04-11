@@ -1,0 +1,34 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.climate-container {
+  align-items: center;
+  background-color: #1a1a1a;
+  border-radius: 25px;
+  margin: 2em;
+  padding: 1em;
+}
+
+.row {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.temperature {
+  font-size: 3em;
+  padding-right: 1em;
+}
+
+.tracker-container {
+  display: flex;
+  justify-content: center;
+}

@@ -40,6 +40,28 @@
     width: 7em;
 }
 
+.modal {
+    padding: 2em;
+    border-radius: 25px;
+    border-color: #1a1a1a;
+}
+
+.modal p {
+    font-size: large;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.modal > form {
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal button {
+    margin: 0.7em;
+    color: rgba(255, 255, 255, 0.87);
+}
+
 @media only screen and (max-width: 600px) {
     .climate-container {
         align-items: center;

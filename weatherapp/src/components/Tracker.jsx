@@ -1,39 +1,60 @@
 import '../App.css';
+import React, { useEffect, useState } from 'react';
 
-export default function Tracker() {
-  return (
-    <>
-      <div className='climate-container'>
-        <div>
-          <h3>Recife, Pernambuco</h3>
-        </div>
-        <div className='row'>
-          <div>
-            <h1 className='temperature'>13 °C</h1>
-          </div>
-          {/* Weather Image */}
-          <div>
-            <svg
-              class='weather-icon'
-              data-src='/images/weathericons/4.svg'
-              viewBox='0 0 288 288'
-              width='88'
-              height='88'
-            >
-              <g stroke-width='9.533' fill='none' fill-rule='evenodd'>
-                <path
-                  d='M142.99 1v47.663M142.99 239.316v47.663M0 143.99h47.663M210.385 76.594l33.698-33.698M244.083 245.083l-33.698-33.698M75.594 76.594 41.896 42.896M211.624 110.959c-14.997-31.103-49.022-48.248-82.944-41.794-33.922 6.453-59.275 34.894-61.804 69.331-2.53 34.437 18.396 66.277 51.011 77.617 32.615 11.34 68.78-.649 88.16-29.227'
-                  stroke='#FF8700'
-                ></path>
-                <path
-                  d='M250.184 124.924h-4.147a38.13 38.13 0 0 0-67.777 22.879h-6.1c-10.431.515-18.624 9.122-18.624 19.565 0 10.444 8.193 19.051 18.623 19.566h78.025a31.029 31.029 0 1 0 0-61.962v-.048ZM78.644 234.55h-4.432c0-13.162-10.67-23.832-23.832-23.832a23.45 23.45 0 0 0-18.732 9.533h-7.816c-10.53 0-19.066 8.535-19.066 19.065 0 10.53 8.536 19.065 19.066 19.065h54.812c6.581 0 11.916-5.335 11.916-11.916 0-6.58-5.335-11.916-11.916-11.916Z'
-                  stroke='#BABABA'
-                ></path>
-              </g>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+export default function Tracker({ city }) {
+    const [weatherData, setWeatherData] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+
+    useEffect(() => {
+        const fetchWeather = async () => {
+            try {
+                const response = await fetch(
+                    `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`
+                );
+                if (!response.ok) throw new Error('Erro!');
+                const data = await response.json();
+                setWeatherData(data);
+            } catch (error) {
+                console.error('Erro ao buscar dados: ', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchWeather();
+    }, [city, apiKey]);
+
+    if (loading) return <p>Carregando...</p>;
+    if (!weatherData) return <p>Erro ao carregar dados.</p>;
+
+    return (
+        <>
+            <div className='climate-container'>
+                <div>
+                    <h3>
+                        {weatherData.location.name},{' '}
+                        {weatherData.location.region},
+                        {weatherData.location.country}
+                    </h3>
+                </div>
+                <div className='row'>
+                    <div>
+                        <h1 className='temperature'>
+                            {Math.trunc(weatherData.current.temp_c)} °C
+                        </h1>
+                    </div>
+                    {/* Weather Image */}
+                    <div>
+                        <img
+                            className='weather-icon'
+                            src={weatherData.current.condition.icon}
+                            alt={weatherData.current.condition.text}
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 }

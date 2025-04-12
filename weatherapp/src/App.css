@@ -25,10 +25,14 @@
 
 .temperature {
   font-size: 3em;
-  padding-right: 1em;
+  padding: 0.5em;
 }
 
 .tracker-container {
   display: flex;
   justify-content: center;
+}
+
+.weather-icon {
+  width: 7em;
 }

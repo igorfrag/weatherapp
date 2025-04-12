@@ -14,6 +14,11 @@ function App() {
             </div>
             <div className='tracker-container'>
                 <Tracker city={'Recife'} />
+                <Tracker city={'london'} />
+                <Tracker city={'vancouver'} />
+                <Tracker city={'Recife'} />
+                <Tracker city={'Recife'} />
+                <Tracker city={'Recife'} />
             </div>
         </>
     );

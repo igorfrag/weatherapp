@@ -35,7 +35,6 @@ export default function Tracker({ city }) {
                 <div>
                     <h3>
                         {weatherData.location.name},{' '}
-                        {weatherData.location.region},
                         {weatherData.location.country}
                     </h3>
                 </div>
@@ -45,7 +44,6 @@ export default function Tracker({ city }) {
                             {Math.trunc(weatherData.current.temp_c)} °C
                         </h1>
                     </div>
-                    {/* Weather Image */}
                     <div>
                         <img
                             className='weather-icon'

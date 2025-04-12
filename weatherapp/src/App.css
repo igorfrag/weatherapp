@@ -1,38 +1,58 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
 .card {
-  padding: 2em;
+    padding: 2em;
 }
 
 .climate-container {
-  align-items: center;
-  background-color: #1a1a1a;
-  border-radius: 25px;
-  margin: 2em;
-  padding: 1em;
+    align-items: center;
+    background-color: #1a1a1a;
+    border-radius: 25px;
+    margin: 2em;
+    padding: 1em;
+    flex: 0 0 300px;
+    max-width: 300px;
 }
 
 .row {
-  align-items: center;
-  justify-content: center;
-  display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .temperature {
-  font-size: 3em;
-  padding: 0.5em;
+    font-size: 3em;
+    padding: 0.5em;
 }
 
 .tracker-container {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .weather-icon {
-  width: 7em;
+    width: 7em;
+}
+
+@media only screen and (max-width: 600px) {
+    .climate-container {
+        align-items: center;
+        margin: 1em;
+        padding: 0.6em;
+        flex: 0 0 250px;
+        max-width: 250px;
+    }
+    .temperature {
+        font-size: 2em;
+        padding: 0.5em;
+    }
+    .weather-icon {
+        width: 5em;
+    }
 }

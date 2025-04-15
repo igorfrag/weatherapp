@@ -1,7 +1,7 @@
 import '../App.css';
 import React, { useEffect, useState } from 'react';
 
-export default function Tracker({ city }) {
+export default function Tracker({ city, handleRemoveCity }) {
     const [weatherData, setWeatherData] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -32,11 +32,14 @@ export default function Tracker({ city }) {
     return (
         <>
             <div className='climate-container'>
-                <div>
+                <div className='climate-header'>
                     <h3>
                         {weatherData.location.name},{' '}
                         {weatherData.location.country}
                     </h3>
+                    <button type='button' onClick={handleRemoveCity}>
+                        X
+                    </button>
                 </div>
                 <div className='row'>
                     <div>

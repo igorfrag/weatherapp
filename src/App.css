@@ -100,3 +100,43 @@
         width: 5em;
     }
 }
+
+@media (prefers-color-scheme: light) {
+    .climate-container {
+        align-items: center;
+        background-color: #9aa6b2;
+        border-radius: 25px;
+        border: 2px #bcccdc solid;
+        margin: 2em;
+        padding: 1em;
+        flex: 0 0 300px;
+        max-width: 300px;
+    }
+    .tracker-container {
+        border-radius: 25px;
+    }
+    .modal button {
+        margin: 0.7em;
+        color: #f8fafc;
+        border: 2px #bcccdc solid;
+    }
+
+    .modal {
+        padding: 2em;
+        border-radius: 25px;
+        border-color: #bcccdc;
+    }
+
+    .modal p {
+        font-size: large;
+        color: #f8fafc;
+    }
+
+    dialog {
+        background-color: #9aa6b2;
+    }
+
+    #city-name {
+        background-color: #d9eafd;
+    }
+}

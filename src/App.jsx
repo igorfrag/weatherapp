@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import './App.css';
 import Tracker from './components/Tracker';
 import Modal from './components/Modal';
+import ThemeToggle from './components/ToggleTheme';
 
 function App() {
     const storedCities = JSON.parse(localStorage.getItem('cities'));
@@ -30,8 +31,11 @@ function App() {
 
     return (
         <>
-            <h1>Weatherapp - Climate Tracking</h1>
-            <div className='card'>
+            <div className='header'>
+                <h1>Weatherapp</h1>
+                <ThemeToggle />
+            </div>
+            <div>
                 <Modal modalRef={modalRef} onSubmit={handleAddCity} />
             </div>
             <div className='tracker-container'>

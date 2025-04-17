@@ -5,13 +5,23 @@
     text-align: center;
 }
 
-.card {
-    padding: 2em;
+.header {
+    position: relative;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--button-bg-color);
 }
 
 .climate-container {
     align-items: center;
-    background-color: #1a1a1a;
+    background-color: var(--button-bg-color);
     border-radius: 25px;
     margin: 2em;
     padding: 1em;
@@ -44,11 +54,12 @@
     padding: 2em;
     border-radius: 25px;
     border-color: #1a1a1a;
+    background-color: var(--bg-color);
 }
 
-.modal p {
+.modal > p {
     font-size: large;
-    color: rgba(255, 255, 255, 0.87);
+    color: var(--text-color);
 }
 
 .modal > form {
@@ -59,7 +70,7 @@
 
 .modal button {
     margin: 0.7em;
-    color: rgba(255, 255, 255, 0.87);
+    color: var(--button-color);
 }
 
 .climate-header {
@@ -76,7 +87,7 @@
 }
 
 .climate-header > button:hover {
-    border-color: rgba(255, 255, 255, 0);
+    border-color: transparent;
     color: red;
 }
 .climate-header > button:focus,
@@ -99,44 +110,15 @@
     .weather-icon {
         width: 5em;
     }
-}
+    .theme-toggle {
+        position: static;
+    }
 
-@media (prefers-color-scheme: light) {
-    .climate-container {
+    .header {
+        padding: 0 0 1rem 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        background-color: #9aa6b2;
-        border-radius: 25px;
-        border: 2px #bcccdc solid;
-        margin: 2em;
-        padding: 1em;
-        flex: 0 0 300px;
-        max-width: 300px;
-    }
-    .tracker-container {
-        border-radius: 25px;
-    }
-    .modal button {
-        margin: 0.7em;
-        color: #f8fafc;
-        border: 2px #bcccdc solid;
-    }
-
-    .modal {
-        padding: 2em;
-        border-radius: 25px;
-        border-color: #bcccdc;
-    }
-
-    .modal p {
-        font-size: large;
-        color: #f8fafc;
-    }
-
-    dialog {
-        background-color: #9aa6b2;
-    }
-
-    #city-name {
-        background-color: #d9eafd;
     }
 }

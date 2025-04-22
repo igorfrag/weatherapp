@@ -33,8 +33,8 @@ function App() {
         <>
             <div className='header'>
                 <h1>Weatherapp</h1>
-                <ThemeToggle />
             </div>
+            <ThemeToggle />
             <div>
                 <Modal modalRef={modalRef} onSubmit={handleAddCity} />
             </div>
